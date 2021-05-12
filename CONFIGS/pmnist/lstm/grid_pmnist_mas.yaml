@@ -1,0 +1,11 @@
+batch_size:
+ - 64
+ - 128
+hidden_size_rnn:
+ - 512
+ - 1024
+mas_lambda:
+ - 0.1
+ - 1
+ - 10
+ - 100

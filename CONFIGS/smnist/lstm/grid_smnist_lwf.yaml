@@ -1,0 +1,26 @@
+hidden_size_rnn:
+ - 256
+ - 512
+lwf_temp:
+ - 0.5
+ - 1
+ - 1.5
+ - 2
+batch_size:
+ - 64
+ - 128
+learning_rate:
+ - 1e-3
+ - 1e-4
+use_sgd:
+ - true
+ - false
+lwf_alpha:
+ -
+  - 0 # 0
+  - 0.5 # 1/2
+  - 1.33333 # 2 * 2/3
+  - 2.25 # 3 * 3/4
+  - 3.2 # 4 * 4/5
+ -
+  - 1

@@ -1,0 +1,23 @@
+lwf_temp:
+ - 0.5
+ - 1
+ - 1.5
+ - 2
+learning_rate:
+ - 1e-2
+ - 1e-3
+lwf_alpha:
+ - 0.1
+ - 1
+batch_size:
+ - 64
+ - 128
+hidden_sizes_mlp:
+ -
+  - 1024
+ -
+  - 1024
+  - 1024
+use_sgd:
+ - true
+ - false

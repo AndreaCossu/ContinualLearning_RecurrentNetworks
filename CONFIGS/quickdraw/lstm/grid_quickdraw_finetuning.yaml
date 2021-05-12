@@ -1,0 +1,6 @@
+layers_rnn:
+  - 1
+  - 2
+bidirectional:
+  - true
+  - false

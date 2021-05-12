@@ -1,0 +1,9 @@
+weight_decay:
+ - 0
+ - 1e-4
+hidden_sizes_mlp:
+ -
+  - 1024
+ -
+  - 1024
+  - 1024

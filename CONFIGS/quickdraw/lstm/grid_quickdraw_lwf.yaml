@@ -1,0 +1,14 @@
+lwf_temp:
+ - 0.5
+ - 1
+ - 1.5
+ - 2
+lwf_alpha:
+ - 0.1
+ - 1
+batch_size:
+ - 64
+ - 128
+use_sgd:
+ - false
+ - true

@@ -1,0 +1,5 @@
+hidden_sizes_mlp:
+ -
+   - 256
+ -
+   - 512

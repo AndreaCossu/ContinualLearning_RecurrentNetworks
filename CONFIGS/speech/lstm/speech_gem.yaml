@@ -1,0 +1,106 @@
+exp_type: words
+num_runs: 5
+max_cpus: 10
+cuda: true
+max_gpus: 2 # used only if cuda is true
+gpus_per_job: 1
+cpus_per_job: 5
+
+not_ray: false
+
+epochs: 2
+models: lstm
+result_folder: /home/cossu/experiments/rnnpaper/words/lstm/gem_notaskvector
+#result_folder: /home/andrea/Desktop/experiments/words/test
+dataroot: /data/cossu/speech_words
+#dataroot: /home/andrea/Desktop/experiments/data/speech_words
+
+# TASK CONFIGURATION
+grid_file: /home/cossu/continual-learning/CONFIGS/speech/lstm/grid_speech_gem.yaml
+n_tasks_val: 3 # -1 to do validation on all tasks
+n_tasks_test: 10 # -1 to test on all tasks
+output_size: 30
+input_size: 20 # 40 for RNN, 4040 for MLP (40 MFCC for 101 steps)
+max_label_value: 30 # if real value is greater, a % op will be applied on it.
+
+# OPTIMIZER
+weight_decay: 0
+learning_rate: 1e-3
+batch_size: 10
+clip_grad: 5.0
+use_sgd: true
+
+# EXTRAS
+multitask: false
+multihead: false
+not_test: false
+not_intermediate_test: true
+monitor: true # monitor metrics
+save: true # save models
+load: false # load previous models
+
+# MODELS
+expand_output: 0 #Expand output layer dynamically
+
+# RNN - LSTM - LMN
+hidden_size_rnn: 512
+layers_rnn: 2
+hidden_size_lmn: 128 # hidden dimension of functional component of LMN
+memory_size_lmn: 128 # memory size of LMN
+functional_out: true # compute output from functional instead of memory')
+orthogonal: false # Use orthogonal recurrent matrixes
+
+# MLP
+hidden_sizes_mlp: # number of hidden units for each layer
+ - 512
+relu_mlp: true # tanh if false
+
+# LWTA
+units_per_block: # number of units per block for each hidden layer
+  - 3
+blocks_per_layer: # number of blocks for each hidden layer
+ - 10
+activation_lwta: relu # relu, tanh, none
+
+# ESN
+reservoir_size: 128
+spectral_radius: 0.9
+sparsity: 0.0
+alpha: 1.0
+orthogonal_esn: false # Using orthogonal reservoir
+
+# CNN
+feed_conv_layers: # units for each feedforward layers of CNN
+ - 256
+ - 128
+n_conv_layers: 3 # number of convolutional layers
+
+# SPEECH
+classes_per_task: 2
+
+# CL STRATEGIES
+ewc_lambda: 0
+
+mas_lambda: 0
+
+cwr: false
+ar1: false
+
+agem: false
+gem_patterns_per_step: 256
+agem_sample_size: 256
+gem: true
+gem_memory_strength: 0
+task_vector_at_test: false
+
+lwf: false
+lwf_temp: 1 # softmax temperature for LwF
+warmup_epochs: 0 # how many warmup epochs for lwf
+
+si_lambda: 0
+eps: 1e-3 # SI epsilon
+
+rehe_patterns: 0 # Number of rehearsal patterns per class
+patterns_per_class_per_batch: 2 # can be -1 (disable this option, not rehearsal), 0 (add a minibatch equally split among classes) or >0 (specify patterns per class per minibatch)
+
+truncated_time: 0 # Truncated time when computing importance gradient

@@ -1,0 +1,111 @@
+exp_type: mnist
+num_runs: 5
+max_cpus: 10
+cuda: false
+max_gpus: 0 # used only if cuda is true
+gpus_per_job: 0
+cpus_per_job: 20
+
+not_ray: false
+
+epochs: 20
+models: lstm
+result_folder: /home/cossu/experiments/rnnpaper/mnist/permuted/lstm_row/lwf
+dataroot: /home/cossu/data
+#result_folder: /home/andrea/Desktop/experiments/smnist/test
+#dataroot: /home/andrea/Desktop/experiments/data
+
+# TASK CONFIGURATION
+grid_file: /home/cossu/continual-learning/CONFIGS/pmnist/lstm_row/grid_pmnist_lwf.yaml # uncomment this to enable grid
+#grid_file: '' # uncomment this to disable grid
+n_tasks_val: 3
+n_tasks_test: 10
+
+output_size: 10
+input_size: 28 # Model input size: 1 for RNN, 784 for MLP
+pixel_in_input: 28 # Used to produce permutation and image sequence shape. 1 for MLP or RNN with pixel MNIST. 28 for RNN with row-MNIST.
+max_label_value: 10 # if real value is greater, a % op will be applied on it.
+
+# OPTIMIZER
+weight_decay: 0
+learning_rate: 1e-3
+batch_size: 128
+clip_grad: 5
+use_sgd: False
+
+# EXTRAS
+multitask: false
+multihead: false
+
+not_test: false
+not_intermediate_test: true
+monitor: true # monitor metrics
+save: true # save models
+load: false # load previous models
+
+# MODELS
+expand_output: 0 #Expand output layer dynamically
+
+# RNN - LSTM - LMN
+hidden_size_rnn: 256
+layers_rnn: 1
+hidden_size_lmn: 128 # hidden dimension of functional component of LMN
+memory_size_lmn: 128 # memory size of LMN
+functional_out: true # compute output from functional instead of memory')
+orthogonal: false # Use orthogonal recurrent matrixes
+
+# MLP
+hidden_sizes_mlp: # number of hidden units for each layer
+ - 256
+relu_mlp: true # tanh if false
+
+# LWTA
+units_per_block: # number of units per block for each hidden layer
+  - 3
+blocks_per_layer: # number of blocks for each hidden layer
+ - 10
+activation_lwta: relu # relu, tanh, none
+
+# ESN
+reservoir_size: 128
+spectral_radius: 0.9
+sparsity: 0.0
+alpha: 1.0
+orthogonal_esn: false # Using orthogonal reservoir
+
+# CNN
+feed_conv_layers: # units for each feedforward layers of CNN
+ - 256
+ - 128
+n_conv_layers: 3 # number of convolutional layers
+
+# MNIST
+split: false # Use split MNIST
+sequential: false # permute images if false
+
+# CL STRATEGIES
+ewc_lambda: 0
+
+mas_lambda: 0
+
+cwr: false
+ar1: false
+
+agem: false
+gem_patterns_per_step: 256
+agem_sample_size: 256
+gem: false
+gem_memory_strength: 0.5
+task_vector_at_test: false
+
+lwf: true
+lwf_temp: 1.5 # softmax temperature for LwF
+warmup_epochs: 0 # how many warmup epochs for lwf
+
+si_lambda: 0
+eps: 1e-3 # SI epsilon
+
+rehe_patterns: 0 # Number of rehearsal patterns per class in the memory. This controls all type of rehearsal.
+patterns_per_class_per_batch: 10 # can be -1 (disable this option, not rehearsal), 0 (add a minibatch equally split among classes) or >0 (specify patterns per class per minibatch)
+
+truncated_time: 0 # Truncated time when computing importance gradient

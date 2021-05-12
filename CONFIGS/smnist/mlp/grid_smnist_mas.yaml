@@ -1,0 +1,14 @@
+hidden_sizes_mlp:
+ -
+  - 128
+ -
+  - 128
+  - 128
+mas_lambda:
+ - 0.1
+ - 1
+ - 10
+ - 100
+learning_rate:
+ - 0.01
+ - 0.001

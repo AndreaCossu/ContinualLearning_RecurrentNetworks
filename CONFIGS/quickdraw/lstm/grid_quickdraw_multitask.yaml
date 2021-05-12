@@ -1,0 +1,9 @@
+layers_rnn:
+  - 1
+  - 2
+bidirectional:
+  - true
+  - false
+hidden_size_rnn:
+  - 512
+  - 256

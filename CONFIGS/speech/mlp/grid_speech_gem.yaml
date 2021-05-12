@@ -1,0 +1,10 @@
+gem_patterns_per_step:
+ - 64
+ - 128
+ - 256
+gem_memory_strength:
+ - -1
+ - -2
+learning_rate:
+ - 0.01
+ - 0.001
