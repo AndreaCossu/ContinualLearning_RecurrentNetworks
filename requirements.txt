@@ -6,3 +6,4 @@ numpy
 scikit-learn
 matplotlib
 ray
+git+git://github.com/ContinualAI/avalanche@master#egg=avalanche
